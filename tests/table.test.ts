@@ -1,4 +1,4 @@
-import Table from "../src/table";
+import Table from "../src/index";
 import * as fs from "fs";
 
 /** describes a file */
