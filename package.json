@@ -12,7 +12,7 @@
         "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
         "prepack": "npm run build"
     },
-    "keywords": [],
+    "keywords": ["table", "database", "typescript", "why are you reading this", "please stop", "i beg you", "why are you not stopping", "ok i give up"],
     "author": "Gabriel Ramalho",
     "license": "ISC",
     "files": ["lib/**/*"],
