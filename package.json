@@ -1,0 +1,41 @@
+{
+    "name": "@gdor-11/table.js",
+    "version": "1.0.0",
+    "description": "a really simple table-based database typescript library",
+    "types": "./lib/csj/types/index.d.ts",
+    "main": "./lib/cjs/index.js",
+    "scripts": {
+        "test": "jest --config=tests/jest.config.js",
+        "clean": "rm -rf ./lib",
+        "build": "npm run clean && npm run build:esm && npm run build:cjs",
+        "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+        "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+        "prepack": "npm run build"
+    },
+    "keywords": [],
+    "author": "Gabriel Ramalho",
+    "license": "ISC",
+    "files": ["lib/**/*"],
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./lib/esm/types/index.d.ts",
+                "default": "./lib/esm/index.mjs"
+            },
+            "require": {
+                "types": "./lib/cjs/types/index.d.ts",
+                "default": "./lib/cjs/index.js"
+            }
+        }
+    },
+    "dependencies": {
+        "@types/node": "^18.14.6"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.0",
+        "jest": "^29.5.0",
+        "mock-fs": "^5.2.0",
+        "ts-jest": "^29.0.5",
+        "typescript": "^5.0.3"
+    }
+}
