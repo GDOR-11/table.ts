@@ -1,5 +1,23 @@
 import * as fs from "fs";
 
+/**
+ * clones an arbitrairily nested array. If the array contains objects that are not arrays, those won't be cloned.
+ * this is around 8 times faster than structuredClone, and has greater support. The downside is that it only works with arrays.
+ * @param array the array to clone
+ * @returns the same array, but cloned
+ */
+function cloneArray(array: any[]): any[] {
+    let clonedArray: any[] = [];
+    for(let element of array) {
+        if(element instanceof Array) {
+            clonedArray.push(cloneArray(element));
+        } else {
+            clonedArray.push(element);
+        }
+    }
+    return clonedArray;
+}
+
 class Table {
     //#region properties
     private _columns: Array<string> = [];
@@ -221,7 +239,7 @@ class Table {
 
     /** the data duh */
     public get data(): Array<Array<string>> {
-        return structuredClone(this._data);
+        return cloneArray(this._data);
     }
     public set data(data: Array<Array<string>>) {
         for(let i = 0;i < data.length;i++) {
@@ -237,7 +255,7 @@ class Table {
 
     /** the column names duh */
     public get columns(): Array<string> {
-        return structuredClone(this._columns);
+        return cloneArray(this._columns);
     }
     private set columns(columns: Array<string>) {
         this._columns = columns;
