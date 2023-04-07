@@ -13,6 +13,7 @@ jobs:
 
         strategy:
             matrix:
+                # does not work on 14.x, for some reason npm ci fails to run
                 node-version: [15.x, 16.x, 17.x, 18.x]
 
         steps:
