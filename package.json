@@ -1,6 +1,6 @@
 {
     "name": "@gdor11/table.ts",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "a really simple table-based database typescript library",
     "types": "./lib/csj/types/index.d.ts",
     "main": "./lib/cjs/index.js",
@@ -12,10 +12,21 @@
         "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
         "prepack": "npm run build"
     },
-    "keywords": ["table", "database", "typescript", "why are you reading this", "please stop", "i beg you", "why are you not stopping", "ok i give up"],
+    "keywords": [
+        "table",
+        "database",
+        "typescript",
+        "why are you reading this",
+        "please stop",
+        "i beg you",
+        "why are you not stopping",
+        "ok i give up"
+    ],
     "author": "Gabriel Ramalho",
     "license": "ISC",
-    "files": ["lib/**/*"],
+    "files": [
+        "lib/**/*"
+    ],
     "exports": {
         ".": {
             "import": {
